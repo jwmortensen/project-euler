@@ -1,7 +1,4 @@
-val fibonacci:Stream[BigInt] = BigInt(0) #:: fibonacci.scanLeft(BigInt(1))(_+_)
-
-def sum(xs: List[BigInt]): BigInt =  xs.reduceLeft {(x,y) => x + y}
+val fibonacci:Stream[Int] = 0 #:: fibonacci.scanLeft(1)(_+_)
 
 val limit = 4000000
-val fibs = fibonacci.takeWhile(_ <= limit).filter(x => x % 2 == 0).toList
-println(sum(fibs))
+println(fibonacci.takeWhile(_ <= limit).filter(_ % 2 == 0).toList.sum)
