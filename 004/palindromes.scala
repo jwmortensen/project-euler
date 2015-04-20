@@ -1,10 +1,6 @@
-def isPalindrome(n: Int): Boolean = {
-   val str = n.toString
-   str == str.reverse
-}
+def isPalindrome(n: Int) = n.toString == n.toString.reverse
 
-val l1 = 100 to 999
-val maxPalindrome = l1.combinations(2)
-  .map(x => x(0) * x(1))
+val maxPalindrome = (100 to 999)
+  .flatMap(i => (i to 999).map(i * _))
   .filter(isPalindrome(_)).max
 println(maxPalindrome)
