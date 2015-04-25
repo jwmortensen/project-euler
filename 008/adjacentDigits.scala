@@ -19,5 +19,6 @@ val num = """73167176531330624919225119674426574742355349194934
 05886116467109405077541002256983155200055935729725
 71636269561882670428252483600823257530420752963450"""
 
-val numList = num.toList.filter(_.isDigit).map(_.asDigit.toLong)
-println(numList.sliding(13).map(_.product).max)
+val numDigits = 13
+val numList = num.filter(_.isDigit).map(_.asDigit.toLong)
+println(numList.sliding(numDigits).map(_.product).max)
