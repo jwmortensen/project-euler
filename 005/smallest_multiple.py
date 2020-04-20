@@ -1,11 +1,16 @@
+def gcd(a, b):
+	if a == 0:
+		return b
+	else:
+		return gcd(b % a, a)
+
+def lcm(a, b):
+	return (a * b) / gcd(a, b)
+	
 def smallest_multiple(n_factors):
-	factors = list(range(1, n_factors + 1))
-	is_multiple = False
-	val = 0
-	while not bool(is_multiple):
-		remainders = map(lambda x: (val + n_factors) % x, factors)
-		is_multiple = all(x == 0 for x in remainders)
-		val += n_factors
-	return val
+	multiple = 1
+	for i in range(2, n_factors + 1):
+		multiple = lcm(multiple, i)
+	return multiple
 	
 print(smallest_multiple(20))
